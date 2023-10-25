@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.tpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 23:57:54 by tduprez           #+#    #+#             */
-/*   Updated: 2023/10/25 00:12:44 by tduprez          ###   ########lyon.fr   */
+/*   Created: 2023/10/25 00:04:16 by tduprez           #+#    #+#             */
+/*   Updated: 2023/10/25 15:13:46 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "../includes/Span.hpp"
 
-void	displayInt(int i)
+int	main(void)
 {
-	std::cout << i << std::endl;
-}
-
-template<typename T>
-int	easyfind(const T& container, int toFind)
-{
-	for_each(container.begin(), container.end(), displayInt);
+	Span	span(10);
+	for (int i = 0; i < 15; i++)
+	{
+		try
+		{
+			span.addNumber(i);
+		}
+		catch (std::range_error& e)
+		{
+			std::cout << e.what() << std::endl;
+		}
+	}
+	return 0;
 }

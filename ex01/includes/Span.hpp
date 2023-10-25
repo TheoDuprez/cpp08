@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 12:37:14 by tduprez           #+#    #+#             */
-/*   Updated: 2023/10/25 12:53:19 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2023/10/25 15:09:23 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,37 +15,54 @@
 #include <vector>
 #include <list>
 
-class noOccurenceFound : public std::exception
+class Span
 {
+	private:
+		unsigned int		_N;
+		std::vector<int>	_data;
+		Span(void);
+
 	public:
-		const char* what() const throw()
-		{
-			return "No occurence found...";
-		}
+		Span(unsigned int N);
+		Span(const Span& obj);
+		Span& operator=(const Span& obj);
+		~Span(void);
+
+		void	addNumber(int n);
 };
 
-void	displayInt(int i)
+Span::Span(void)
 {
-	std::cout << i << std::endl;
+	return ;
 }
 
-template<typename T>
-int	easyfind(const T& container, int toFind)
+Span::Span(unsigned int N): _N(N)
 {
-	typename T::const_iterator	start = container.begin();
-	typename T::const_iterator	end = container.end();
-	bool						isFound = false;
-	(void)start;
+	return ;
+}
 
-	for (; start != end; start++)
-	{
-		if (*start == toFind)
-		{
-			std::cout << "Occurence to found is : " << *start << std::endl;
-			isFound = true;
-		}
-	}
-	if (isFound == false)
-		throw noOccurenceFound();
-	return 0;
+Span::Span(const Span& obj)
+{
+	if (this != &obj)
+		*this = obj;
+	return ;
+}
+
+Span& Span::operator=(const Span& obj)
+{
+	this->_N = obj._N;
+	return *this;
+}
+
+Span::~Span(void)
+{
+	return ;
+}
+
+void	Span::addNumber(int n)
+{
+	if (this->_data.size() == this->_N)
+		throw  std::range_error("Cannot add number : Span is full !");
+	this->_data.push_back(n);
+	return ;
 }
