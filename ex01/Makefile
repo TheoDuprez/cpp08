@@ -18,6 +18,7 @@ CYAN	= 		\033[0;96m
 WHITE	= 		\033[0;37m
 
 SRCS =			./srcs/main.cpp \
+				./srcs/Span.cpp \
 
 OBJS =			$(SRCS:.cpp=.o)
 

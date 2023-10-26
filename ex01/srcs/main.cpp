@@ -6,7 +6,7 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 00:04:16 by tduprez           #+#    #+#             */
-/*   Updated: 2023/10/25 22:12:59 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2023/10/26 14:07:03 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,36 +21,39 @@ int	main(void)
 			try
 			{
 				span.addNumber(i);
-				std::cout << span._data[i] << " --- " << i << std::endl;
 			}
 			catch (std::range_error& e)
 			{
 				std::cout << e.what() << std::endl;
 			}
 		}
-		std::cout << span._data.size() << std::endl;
-		for (int i = 0; i < 10; i++)
-			std::cout << span._data[i] << std::endl;
+		std::cout << "------------------------------------" << std::endl;
+		span.printVector();
+		std::cout << "------------------------------------" << std::endl;
 	}
-
 	{
 		Span	span(100);
-		std::vector<int> base;
 
 		try
 		{
-			span.addNumbersByRange(0, 1000);
+			span.addNumbersByRange(15, 115);
 		}
 		catch(const std::out_of_range& e)
 		{
 			std::cout << e.what() << std::endl;
 		}
-		
-
-		// for (int i = 0; i < 1200; i++)
-		// 	std::cout << span._data[i] << std::endl;
+		span.printVector();
+		std::cout << "------------------------------------" << std::endl;
 	}
-
-	
+	{
+		Span sp = Span(5) ;
+		sp.addNumber(6) ;
+		sp.addNumber(3) ;
+		sp.addNumber(17) ;
+		sp.addNumber(9) ;
+		sp.addNumber(11) ;
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
+	}
 	return 0;
 }
