@@ -6,7 +6,7 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:52:21 by tduprez           #+#    #+#             */
-/*   Updated: 2023/11/02 16:43:34 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2023/11/02 16:56:09 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ template<typename T>
 class MutantStack : public std::stack<T>
 {
 private:
-	/* data */
+	
 public:
 	typedef typename std::stack<T>::container_type::iterator iterator;
 	MutantStack(void);
