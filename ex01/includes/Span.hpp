@@ -6,9 +6,12 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 12:37:14 by tduprez           #+#    #+#             */
-/*   Updated: 2023/10/26 15:21:19 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2024/01/07 17:40:38 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef SPAN_HPP
+#define SPAN_HPP
 
 #include <iostream>
 #include <algorithm>
@@ -36,3 +39,5 @@ class Span
 		void	printVector(void);
 
 };
+
+#endif

@@ -6,12 +6,12 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:52:21 by tduprez           #+#    #+#             */
-/*   Updated: 2023/11/02 16:57:07 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2024/01/07 17:40:11 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MutantStack_HPP
-# define MutantStack_HPP
+#ifndef MUTANTSTACK_HPP
+# define MUTANTSTACK_HPP
 
 #include <stack>
 #include <iostream>
@@ -25,6 +25,7 @@ public:
 	typedef typename std::stack<T>::container_type::iterator iterator;
 	MutantStack(void);
 	MutantStack(const MutantStack& obj);
+	MutantStack& operator=(const MutantStack& obj);
 	~MutantStack(void);
 
 	iterator begin()
@@ -38,13 +39,13 @@ public:
 };
 
 template<typename T>
-MutantStack<T>::MutantStack(void): std::stack<T>()
+MutantStack<T>::MutantStack(void)
 {
 	return ;
 }
 
 template<typename T>
-MutantStack<T>::MutantStack(const MutantStack& obj): std::stack<T>()
+MutantStack<T>::MutantStack(const MutantStack& obj)
 {
 	if (*this != obj)
 		*this = obj;
@@ -52,10 +53,16 @@ MutantStack<T>::MutantStack(const MutantStack& obj): std::stack<T>()
 }
 
 template<typename T>
+MutantStack<T>& MutantStack<T>::operator=(const MutantStack& obj)
+{
+	static_cast<void>(obj);
+	return *this;
+}
+
+template<typename T>
 MutantStack<T>::~MutantStack(void)
 {
 	return ;
 }
-
 
 #endif

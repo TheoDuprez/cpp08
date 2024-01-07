@@ -6,7 +6,7 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 00:04:16 by tduprez           #+#    #+#             */
-/*   Updated: 2023/10/26 14:07:03 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2024/01/07 16:20:29 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ int	main(void)
 		std::cout << "------------------------------------" << std::endl;
 	}
 	{
-		Span	span(100);
+		Span	span(10000);
 
 		try
 		{
-			span.addNumbersByRange(15, 115);
+			span.addNumbersByRange(0, 10000);
 		}
 		catch(const std::out_of_range& e)
 		{

@@ -6,11 +6,13 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 00:04:16 by tduprez           #+#    #+#             */
-/*   Updated: 2023/10/25 12:53:32 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2024/01/07 15:38:25 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/easyfind.hpp"
+#include <vector>
+#include <list>
 
 int	main(void)
 {
@@ -22,11 +24,11 @@ int	main(void)
 		lst.push_back(i);
 		vec.push_back((i + 48));
 	}
-	easyfind(lst, 9);
-	easyfind(vec, '7');
+	std::cout << easyfind(lst, 9) << std::endl;
+	std::cout << easyfind(vec, '7') << std::endl;
 	try
 	{
-		easyfind(vec, 700);
+		std::cout << easyfind(vec, 700) << std::endl;
 	}
 	catch (const noOccurenceFound& e)
 	{

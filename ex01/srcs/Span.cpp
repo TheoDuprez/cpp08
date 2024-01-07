@@ -6,7 +6,7 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:21:24 by tduprez           #+#    #+#             */
-/*   Updated: 2023/10/26 15:21:35 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2024/01/07 16:19:59 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ Span::~Span(void)
 void	Span::addNumber(int n)
 {
 	if (this->_posInVector == this->_N)
-		throw  std::range_error("Cannot add number : Span is full !");
+		throw std::range_error("Cannot add number : Span is full !");
 	this->_data.push_back(n);
 	this->_posInVector++;
 	return ;
@@ -80,7 +80,7 @@ void	Span::addNumbersByRange(unsigned int start, unsigned int end)
 	std::vector<unsigned int>::iterator	begin;
 	unsigned int						sizeOfVector = end - start;
 
-	if (end - start > this->_N)
+	if ((end - start) + this->_posInVector > this->_N)
 		throw std::out_of_range("Range error: range too big");
 	for (unsigned i = 0; i < sizeOfVector; i++)
 		vec.push_back(start++);
