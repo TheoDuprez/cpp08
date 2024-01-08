@@ -6,17 +6,17 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:52:04 by tduprez           #+#    #+#             */
-/*   Updated: 2024/01/08 13:52:15 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2024/01/08 19:23:05 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/MutantStack.hpp"
 
-#include <iostream>       // std::cout
-#include <stack>          // std::stack
-#include <vector>         // std::vector
-#include <deque>          // std::deque
-#include <list>          // std::deque
+#include <iostream>
+#include <stack>
+#include <vector>
+#include <deque>
+#include <list>
 
 int main()
 {
@@ -31,8 +31,8 @@ int main()
 		mstack.push(5);
 		mstack.push(737);
 		mstack.push(0);
-		MutantStack<int>::iterator it = mstack.begin();
-		MutantStack<int>::iterator ite = mstack.end();
+		MutantStack<int>::container_type::iterator it = mstack.begin();
+		MutantStack<int>::container_type::iterator ite = mstack.end();
 		++it;
 		--it;
 		while (it != ite)
@@ -53,8 +53,8 @@ int main()
 		mstack2.push("!");
 		mstack2.push("!");
 		mstack2.pop();
-		MutantStack<std::string>::iterator start = mstack2.begin();
-		MutantStack<std::string>::iterator end = mstack2.end();
+		MutantStack<std::string>::container_type::iterator start = mstack2.begin();
+		MutantStack<std::string>::container_type::iterator end = mstack2.end();
 		for (; start != end; start++)
 			std::cout << *start;
 		std::cout << std::endl;

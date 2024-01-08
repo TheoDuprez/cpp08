@@ -6,7 +6,7 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:52:21 by tduprez           #+#    #+#             */
-/*   Updated: 2024/01/07 17:40:11 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2024/01/08 19:22:17 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ class MutantStack : public std::stack<T>
 private:
 
 public:
-	typedef typename std::stack<T>::container_type::iterator iterator;
+	typedef typename std::stack<T>::container_type::iterator iter;
 	MutantStack(void);
 	MutantStack(const MutantStack& obj);
 	MutantStack& operator=(const MutantStack& obj);
 	~MutantStack(void);
 
-	iterator begin()
+	iter begin()
 	{
 		return this->c.begin();
 	}
-	iterator end()
+	iter end()
 	{
 		return this->c.end();
 	}
