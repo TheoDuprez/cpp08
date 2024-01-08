@@ -6,7 +6,7 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:52:04 by tduprez           #+#    #+#             */
-/*   Updated: 2024/01/07 17:39:41 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2024/01/08 13:52:15 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,11 @@ int main()
 		for (; start != end; start++)
 			std::cout << *start;
 		std::cout << std::endl;
+
+		start = mstack2.begin();
+		for (end--; end != start; end--)
+			std::cout << *end;
+		std::cout << *end << std::endl;
 	}
-return 0;
+	return 0;
 }

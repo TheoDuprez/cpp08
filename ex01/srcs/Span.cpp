@@ -6,7 +6,7 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:21:24 by tduprez           #+#    #+#             */
-/*   Updated: 2024/01/07 16:19:59 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2024/01/08 13:37:07 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,12 @@ Span::Span(const Span& obj)
 
 Span& Span::operator=(const Span& obj)
 {
-	this->_N = obj._N;
+	if (this != &obj)
+	{
+		this->_N = obj._N;
+		this->_posInVector = obj._posInVector;
+		this->_data = obj._data;
+	}
 	return *this;
 }
 
@@ -78,12 +83,11 @@ void	Span::addNumbersByRange(unsigned int start, unsigned int end)
 {
 	std::vector<unsigned int>			vec;
 	std::vector<unsigned int>::iterator	begin;
-	unsigned int						sizeOfVector = end - start;
 
 	if ((end - start) + this->_posInVector > this->_N)
 		throw std::out_of_range("Range error: range too big");
-	for (unsigned i = 0; i < sizeOfVector; i++)
-		vec.push_back(start++);
+	for (; start < end; start++)
+		vec.push_back(start);
 	begin = vec.begin();
 	for (; begin != vec.end(); begin++)
 		this->_data.push_back(*begin);
